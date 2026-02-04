@@ -283,7 +283,7 @@ test_connection() {
     sleep 2
     
     # 测试 Google
-    GOOGLE_TEST=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" https://www.google.com)
+    GOOGLE_TEST=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" https://www.google.com/ncr)
     if [ "$GOOGLE_TEST" = "200" ]; then
         echo -e "${GREEN}✓ Google 连接成功！${NC}"
     else
@@ -324,7 +324,7 @@ case "$1" in
         ;;
     test)
         echo "测试 Google 连接..."
-        curl -s --max-time 10 -o /dev/null -w "状态码: %{http_code}\n" https://www.google.com
+        curl -s --max-time 10 -o /dev/null -w "状态码: %{http_code}\n" https://www.google.com/ncr
         ;;
     ip)
         echo "直连 IP:"
@@ -473,7 +473,7 @@ do_show_ip() {
 # 测试 Google 连接
 do_test_google() {
     echo -e "\n${CYAN}测试 Google 连接...${NC}"
-    RESULT=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" https://www.google.com)
+    RESULT=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" https://www.google.com/ncr)
     if [ "$RESULT" = "200" ]; then
         echo -e "${GREEN}✓ Google 连接成功！状态码: $RESULT${NC}\n"
     else
